@@ -1,0 +1,11 @@
+﻿footer
+{
+    background-color: #3e4448;
+    color: #dae4e4;
+    bottom: 0;
+    line-height: 3em;
+    margin-top: 1em;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+}

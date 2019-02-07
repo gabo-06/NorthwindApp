@@ -1,0 +1,229 @@
+﻿@section styles
+{
+    <link href="~/Content/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Content/datatables/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Content/styles/order.css" rel="stylesheet" />
+}
+
+@section scripts
+{
+    <script src="~/Scripts/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Scripts/datatables/dataTables.responsive.min.js"></script>
+    <script src="~/Scripts/datatables/responsive.bootstrap4.min.js"></script>
+    <script src="~/Scripts/MyScripts/utilities.js"></script>
+    <script src="~/Scripts/MyScripts/order.js"></script>
+}
+
+@{
+    ViewBag.Title = "Orders";
+}
+
+<div id="accordion">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-light" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    <h5>Operations</h5>
+                </button>
+            </h5>
+        </div>
+        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <label for="txtCustomer" class="col-sm-1 col-form-label text-left">Customer</label>
+                            <div class="col-sm-9 mb-2">
+                                <input type="text" class="form-control" id="txtCustomer" placeholder="Customer">
+                            </div>
+                            <div class="col-sm-2">
+                                <button type="button" class="btn btn-primary btn-block btn-md">New</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row mb-4">
+                        <div class="col-sm-4"> 
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <label for="dtpOrderDate" class="col-lg-4 col-xl-3 col-form-label text-left">Order Date</label>
+                                    <div class="col-lg-8 col-xl-9 input-group date">
+                                        <span class="input-group-prepend">
+                                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                        </span>
+                                        <input type="text" class="form-control dtpFecha" id="dtpOrderDate" placeholder="Order Date" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <label for="dtpRequiredDate" class="col-lg-4 col-xl-3 col-form-label text-left">Order Date</label>
+                                    <div class="col-lg-8 col-xl-9 input-group date">
+                                        <span class="input-group-prepend">
+                                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                        </span>
+                                        <input type="text" class="form-control dtpFecha" id="dtpRequiredDate" placeholder="Required Date" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <div class="form-row">
+                                    <label for="dtpShippedDate" class="col-lg-4 col-xl-3 col-form-label text-left">Order Date</label>
+                                    <div class="col-lg-8 col-xl-9 input-group date">
+                                        <span class="input-group-prepend">
+                                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                        </span>
+                                        <input type="text" class="form-control dtpFecha" id="dtpShippedDate" placeholder="Shipped Date" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <label for="txtShipName" class="col-sm-1 col-form-label text-left">Ship Name</label>
+                            <div class="col-sm-11">
+                                <input type="text" class="form-control" id="txtShipName" placeholder="Ship Name">
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inputCity">City</label>
+                            <input type="text" class="form-control" id="inputCity">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputState">State</label>
+                            <select id="inputState" class="form-control">
+                                <option selected>Choose...</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputZip">Zip</label>
+                            <input type="text" class="form-control" id="inputZip">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label" for="gridCheck">
+                                Check me out
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-light collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    <h5>Filter</h5>
+                </button>
+            </h5>
+        </div>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                <form>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <label for="txtCustomer" class="col-sm-2 col-form-label">Order Date</label>
+                            <div class="input-group date col-sm-4">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                </span>
+                                <input type="text" class="form-control dtpFecha" id="dtFechaSolicitudInicial" placeholder="From" />
+                            </div>
+                            <div class="input-group date col-sm-4">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                </span>
+                                <input type="text" class="form-control dtpFecha" id="dtFechaSolicitudFinal" placeholder="To" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <label for="txtCustomer" class="col-sm-2 col-form-label">Required Date</label>
+                            <div class="input-group date col-sm-4">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                </span>
+                                <input type="text" class="form-control dtpFecha" id="dtFechaSolicitudInicial" placeholder="From" />
+                            </div>
+                            <div class="input-group date col-sm-4">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                </span>
+                                <input type="text" class="form-control dtpFecha" id="dtFechaSolicitudFinal" placeholder="To" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-row">
+                            <label for="txtCustomer" class="col-sm-2 col-form-label">Shipped Date</label>
+                            <div class="input-group date col-sm-4">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                </span>
+                                <input type="text" class="form-control dtpFecha" id="dtFechaSolicitudInicial" placeholder="From" />
+                            </div>
+                            <div class="input-group date col-sm-4">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                </span>
+                                <input type="text" class="form-control dtpFecha" id="dtFechaSolicitudFinal" placeholder="To" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingThree">
+            <h5 class="mb-0">
+                <button class="btn btn-light collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    <h5>Data</h5>
+                </button>
+            </h5>
+        </div>
+        <div id="collapseThree" class="collapse show" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="card-body">
+                <div class="content">
+                    <h1>Orders</h1>
+                    <br />
+                    <table id="tblOrdenes" class="table table-bordered table-hover dt-responsive nowrap text-secondary">
+                        @*<table id="tblOrdenes" class="table table-bordered table-hover table-responsive dt-responsive ">*@
+                        <thead>
+                            <tr>
+                                <th>CUSTOMER</th>
+                                <th>ORDER DATE</th>
+                                <th>REQUIRED DATE</th>
+                                <th>SHIPPED DATE</th>
+                                <th>SHIP NAME</th>
+                                <th>SHIP ADDRESS</th>
+                                <th>SHIP CITY</th>
+                                <th>SHIP REGION</th>
+                                <th>SHIP COUNTRY</th>
+                                <th>SHIP POSTAL CODE</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

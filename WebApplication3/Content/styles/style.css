@@ -1,0 +1,49 @@
+﻿
+.page-item.active .page-link
+{
+    background-color: lightgrey !important;
+    border: 1px solid black;
+}
+
+.page-link
+{
+    color: black !important;
+}
+
+.OrderID::before
+{
+    border: none !important;
+    background-color: transparent !important;
+    border-radius: 0.2em !important;
+    box-shadow: 0 0 3px #bb3d3d inset !important;
+    color: #ce5b5b !important;
+    content: "\f105" !important;
+    display: inline-block !important;
+    font-family: "Font Awesome 5 Free" !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    font-weight: 900 !important;
+    margin-right: 0.7em !important;
+    padding: 0.2em !important;
+    text-rendering: auto !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+.OrderIDno::before
+{
+    border: none !important;
+    background-color: transparent !important;
+    border-radius: 0.2em !important;
+    box-shadow: 0 0 3px #444444 inset !important;
+    color: #727980 !important;
+    content: "\f107" !important;
+    display: inline-block !important;
+    font-family: "Font Awesome 5 Free" !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    font-weight: 900 !important;
+    margin-right: 0.5em !important;
+    padding: 0.2em !important;
+    text-rendering: auto !important;
+    -webkit-font-smoothing: antialiased !important;
+}

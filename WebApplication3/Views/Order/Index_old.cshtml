@@ -1,0 +1,158 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<WebApplication3.Models.OrderP>
+
+@section EstiloPaginacion
+{
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+}
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+
+<br />
+<h1>Pedidos</h1>
+<br />
+
+<div class="table-responsive">
+    <table id="tblOrdenes" class="table table-bordered table-striped table-hover table-responsive">
+        <thead>
+            <tr>
+                <th class="d-none">
+                    @Html.DisplayNameFor(model => model.First().customer.CustomerID)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().customer.CompanyName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().OrderDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().requiredDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().shippedDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().shipName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().shipAddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().shipCity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().shipRegion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().shipCountry)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().shipPostalCode)
+                </th>
+                <!-- <th>
+                    @Html.DisplayNameFor(model => model.First().employee.NombreCompleto)
+                </th> -->
+                <!-- <th>
+                    @Html.DisplayNameFor(model => model.First().shipper.CompanyName)
+                </th> -->
+                <!-- <th>
+                    @Html.DisplayNameFor(model => model.First().freight)
+                </th> -->
+                <!-- <th></th> -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="d-none">
+                        @Html.DisplayFor(modelItem => item.customer.CustomerID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.customer.CompanyName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.requiredDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.shippedDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.shipName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.shipAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.shipCity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.shipRegion)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.shipCountry)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.shipPostalCode)
+                    </td>
+                    <!-- <td>
+                        @Html.DisplayFor(modelItem => item.employee.NombreCompleto)
+                    </td> -->
+                    <!-- <td>
+                        @Html.DisplayFor(modelItem => item.shipper.CompanyName)
+                    </td> -->
+                    <!-- <td>
+                        @Html.DisplayFor(modelItem => item.freight)
+                    </td> -->
+                    <!-- <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.OrderID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.OrderID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.OrderID })
+                    </td> -->
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="pagination">
+        Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+        of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div>
+</div>
+
+@*@Scripts.Render("~/bundles/jquery")*@
+@*<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>*@
+@*<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>*@
+
+<script>
+    // var northwind = northwind || {};
+    // northwind.mantenimientoOrden = {};
+
+    // northwind.mantenimientoOrden.inicio = function ()
+    // {
+    //     debugger
+    //     $("#tblOrdenes").DataTable({
+    //         "columns":
+    //             [
+    //                 {
+    //                     "class": "details-control",
+    //                     "orderable": false,
+    //                     "data": null,
+    //                     "defaultContent": ""
+    //                 },
+    //                 { "data": "customer.CustomerID" },
+    //                 { "data": "customer.CompanyName" },
+    //                 { "data": "OrderDate" },
+    //                 { "data": "requiredDate" }
+    //             ]
+    //     });
+    // }
+
+    // $(northwind.mantenimientoOrden.inicio);
+</script>
