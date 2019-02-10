@@ -4,7 +4,6 @@
     <link href="~/Content/datatables/responsive.bootstrap4.min.css" rel="stylesheet" />
     <link href="~/Content/styles/order.css" rel="stylesheet" />
 }
-
 @section scripts
 {
     <script src="~/Scripts/datatables/jquery.dataTables.min.js"></script>
@@ -14,11 +13,9 @@
     <script src="~/Scripts/MyScripts/utilities.js"></script>
     <script src="~/Scripts/MyScripts/order.js"></script>
 }
-
 @{
     ViewBag.Title = "Orders";
 }
-
 <div id="accordion">
     <div class="card">
         <div class="card-header" id="headingOne">
@@ -32,85 +29,62 @@
             <div class="card-body">
                 <form>
                     <div class="form-group">
+                        <label for="txtCustomer" class="col-form-label text-left">Customer</label>
                         <div class="form-row">
-                            <label for="txtCustomer" class="col-sm-1 col-form-label text-left">Customer</label>
-                            <div class="col-sm-9 mb-2">
-                                <input type="text" class="form-control" id="txtCustomer" placeholder="Customer">
-                            </div>
-                            <div class="col-sm-2">
+                            <input type="text" class="col-lg-10 form-control" id="txtCustomer" placeholder="Customer" readonly>
+                            <div class="col-lg-2">
                                 <button type="button" class="btn btn-primary btn-block btn-md">New</button>
                             </div>
                         </div>
                     </div>
-                    <div class="form-row mb-4">
-                        <div class="col-sm-4"> 
-                            <div class="form-group">
-                                <div class="form-row">
-                                    <label for="dtpOrderDate" class="col-lg-4 col-xl-3 col-form-label text-left">Order Date</label>
-                                    <div class="col-lg-8 col-xl-9 input-group date">
-                                        <span class="input-group-prepend">
-                                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                                        </span>
-                                        <input type="text" class="form-control dtpFecha" id="dtpOrderDate" placeholder="Order Date" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <div class="form-row">
-                                    <label for="dtpRequiredDate" class="col-lg-4 col-xl-3 col-form-label text-left">Order Date</label>
-                                    <div class="col-lg-8 col-xl-9 input-group date">
-                                        <span class="input-group-prepend">
-                                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                                        </span>
-                                        <input type="text" class="form-control dtpFecha" id="dtpRequiredDate" placeholder="Required Date" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <div class="form-row">
-                                    <label for="dtpShippedDate" class="col-lg-4 col-xl-3 col-form-label text-left">Order Date</label>
-                                    <div class="col-lg-8 col-xl-9 input-group date">
-                                        <span class="input-group-prepend">
-                                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                                        </span>
-                                        <input type="text" class="form-control dtpFecha" id="dtpShippedDate" placeholder="Shipped Date" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-row">
-                            <label for="txtShipName" class="col-sm-1 col-form-label text-left">Ship Name</label>
-                            <div class="col-sm-11">
-                                <input type="text" class="form-control" id="txtShipName" placeholder="Ship Name">
-                            </div>
-                        </div>
-                    </div>
-
-
-
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputCity">City</label>
-                            <input type="text" class="form-control" id="inputCity">
+                        <div class="form-group col-lg-4">
+                            <label for="dtpOrderDate" class="col-form-label text-left">Order Date</label>
+                            <div class="input-group date">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                </span>
+                                <input type="text" class="form-control dtpFecha" id="dtpOrderDate" placeholder="Order Date" />
+                            </div>
                         </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputState">State</label>
-                            <select id="inputState" class="form-control">
-                                <option selected>Choose...</option>
-                                <option>...</option>
-                            </select>
+                        <div class="form-group col-lg-4">
+                            <label for="dtpRequiredDate" class="col-form-label text-left">Required Date</label>
+                            <div class="input-group date">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                </span>
+                                <input type="text" class="form-control dtpFecha" id="dtpRequiredDate" placeholder="Required Date" />
+                            </div>
                         </div>
-                        <div class="form-group col-md-2">
-                            <label for="inputZip">Zip</label>
-                            <input type="text" class="form-control" id="inputZip">
+                        <div class="form-group col-lg-4">
+                            <label for="dtpShippedDate" class="col-form-label text-left">Shipped Date</label>
+                            <div class="input-group date">
+                                <span class="input-group-prepend">
+                                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                                </span>
+                                <input type="text" class="form-control dtpFecha" id="dtpShippedDate" placeholder="Shipped Date" />
+                            </div>
                         </div>
                     </div>
+                    <div class="form-group mb-4">
+                        <div class="form-row">
+                            <label class="col-form-label text-left col-lg-12" for="txtShipName">Ship Name</label>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" class="col-lg-12 form-control" id="txtShipName" placeholder="Ship Name">
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <div class="form-row">
+                            <label class="col-form-label text-left col-lg-12" for="txtShipAddress">Ship Address</label>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" class="col-lg-12 form-control" id="txtShipAddress">
+                        </div>
+                    </div>
+
+
+
                     <div class="form-group">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="gridCheck">
@@ -226,4 +200,3 @@
         </div>
     </div>
 </div>
-
