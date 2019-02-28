@@ -1,8 +1,16 @@
-﻿var northwind = northwind || {};
+﻿debugger
+var northwind = northwind || {};
 northwind.mantenimientoOrden = {};
+
+var NewCustomer_click = function()
+{
+    alert("Abre registro de nuevo cliente");
+}
 
 northwind.mantenimientoOrden.inicio = function ()
 {
+    //northwind.
+    northwind.userInterface.configurarComboSelect2($("#cmbCountry"), null, "Select a country...");
 	northwind.mantenimientoOrden.tabla = $("#tblOrdenes").DataTable({
 		"pagingType": "simple_numbers",
 		"proccessing": true,
@@ -62,6 +70,8 @@ northwind.mantenimientoOrden.inicio = function ()
 		}
 	});
 
+    // Eventos
+	$("#NewCustomer").on("click", NewCustomer_click);
 	$("#tblOrdenes > tbody").on("click", "tr", function (e)
 	{
 		$(this).find("td:eq(0)").toggleClass("OrderIDno").toggleClass("OrderID");

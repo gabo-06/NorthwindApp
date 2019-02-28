@@ -2,7 +2,20 @@
 {
     <link href="~/Content/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
     <link href="~/Content/datatables/responsive.bootstrap4.min.css" rel="stylesheet" />
-    <link href="~/Content/styles/order.css" rel="stylesheet" />
+    <link href="~/Content/select2/select2.min.css" rel="stylesheet" />
+    <style>
+        .select2-selection__rendered {
+            line-height: 31px !important;
+        }
+
+        .select2-container .select2-selection--single {
+            height: 35px !important;
+        }
+
+        .select2-selection__arrow {
+            height: 34px !important;
+        }
+    </style>
 }
 @section scripts
 {
@@ -10,6 +23,8 @@
     <script src="~/Scripts/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="~/Scripts/datatables/dataTables.responsive.min.js"></script>
     <script src="~/Scripts/datatables/responsive.bootstrap4.min.js"></script>
+    <script src="~/Scripts/select2/select2.min.js"></script>
+    <script src="~/Scripts/MyScripts/UserInterface.js"></script>
     <script src="~/Scripts/MyScripts/utilities.js"></script>
     <script src="~/Scripts/MyScripts/order.js"></script>
 }
@@ -31,9 +46,9 @@
                     <div class="form-group">
                         <label for="txtCustomer" class="col-form-label text-left">Customer</label>
                         <div class="form-row">
-                            <input type="text" class="col-lg-10 form-control" id="txtCustomer" placeholder="Customer" readonly>
+                            <input type="text" class="col-lg-10 form-control" id="txtCustomer" tabindex="1" placeholder="Customer" readonly>
                             <div class="col-lg-2">
-                                <button type="button" class="btn btn-primary btn-block btn-md">New</button>
+                                <button type="button" class="btn btn-primary btn-block btn-md" id="NewCustomer" tabindex="2">New</button>
                             </div>
                         </div>
                     </div>
@@ -44,7 +59,7 @@
                                 <span class="input-group-prepend">
                                     <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                 </span>
-                                <input type="text" class="form-control dtpFecha" id="dtpOrderDate" placeholder="Order Date" />
+                                <input type="text" class="form-control dtpFecha" id="dtpOrderDate" tabindex="3" placeholder="Order Date" />
                             </div>
                         </div>
                         <div class="form-group col-lg-4">
@@ -53,7 +68,7 @@
                                 <span class="input-group-prepend">
                                     <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                 </span>
-                                <input type="text" class="form-control dtpFecha" id="dtpRequiredDate" placeholder="Required Date" />
+                                <input type="text" class="form-control dtpFecha" id="dtpRequiredDate" tabindex="4" placeholder="Required Date" />
                             </div>
                         </div>
                         <div class="form-group col-lg-4">
@@ -62,7 +77,7 @@
                                 <span class="input-group-prepend">
                                     <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                                 </span>
-                                <input type="text" class="form-control dtpFecha" id="dtpShippedDate" placeholder="Shipped Date" />
+                                <input type="text" class="form-control dtpFecha" id="dtpShippedDate" tabindex="5" placeholder="Shipped Date" />
                             </div>
                         </div>
                     </div>
@@ -71,29 +86,60 @@
                             <label class="col-form-label text-left col-lg-12" for="txtShipName">Ship Name</label>
                         </div>
                         <div class="form-row">
-                            <input type="text" class="col-lg-12 form-control" id="txtShipName" placeholder="Ship Name">
+                            <input type="text" class="col-lg-12 form-control" id="txtShipName" tabindex="6" placeholder="Ship Name">
                         </div>
                     </div>
-                    <div class="form-group mb-4">
-                        <div class="form-row">
-                            <label class="col-form-label text-left col-lg-12" for="txtShipAddress">Ship Address</label>
+                    <div class="form-row">
+                        <div class="form-group col-lg-4">
+
+                            <div class="form-row d-block">
+                                <div class="col-lg-12 d-block">
+                                    <label for="dtpOrderDate" class="col-form-label text-left">Country</label>
+                                </div>
+                            </div>
+                            <div class="form-row d-block">
+                                <div class="col-lg-12 d-block">
+                                    <select class="form-control" id="cmbCountry" tabindex="7">
+                                        <option></option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+
                         </div>
-                        <div class="form-row">
-                            <input type="text" class="col-lg-12 form-control" id="txtShipAddress">
+                        <div class="form-group col-lg-4">
+                            <label for="dtpRequiredDate" class="col-form-label text-left">Region</label>
+                            <select class="form-control" tabindex="8">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label for="dtpShippedDate" class="col-form-label text-left">City</label>
+                            <select class="form-control" tabindex="9">
+                                <option></option>
+                            </select>
                         </div>
                     </div>
-
-
-
+                    <div class="form-row">
+                        <div class="form-group col-lg-10">
+                            <label class="col-form-label text-left" for="txtShipAddress">Ship Address</label>
+                            <input type="text" class="form-control" id="txtShipAddress" tabindex="10">
+                        </div>
+                        <div class="form-group col-lg-2">
+                            <label class="col-form-label text-left" for="txtShipAddress">Ship Postal Code</label>
+                            <input type="text" class="form-control" id="txtShipAddress" tabindex="11">
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <input class="form-check-input" type="checkbox" id="gridCheck" tabindex="12">
                             <label class="form-check-label" for="gridCheck">
                                 Check me out
                             </label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" class="btn btn-primary" tabindex="13">Register</button>
                 </form>
             </div>
         </div>
@@ -178,7 +224,9 @@
                     <h1>Orders</h1>
                     <br />
                     <table id="tblOrdenes" class="table table-bordered table-hover dt-responsive nowrap text-secondary">
-                        @*<table id="tblOrdenes" class="table table-bordered table-hover table-responsive dt-responsive ">*@
+                        @*
+                            <table id="tblOrdenes" class="table table-bordered table-hover table-responsive dt-responsive ">
+                        *@
                         <thead>
                             <tr>
                                 <th>CUSTOMER</th>

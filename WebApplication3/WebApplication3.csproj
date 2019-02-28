@@ -322,6 +322,8 @@
     <Content Include="Content\fonts\.gitignore" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\fonts\h5p-font-awesome.min.css" />
+    <Content Include="Content\select2\select2.css" />
+    <Content Include="Content\select2\select2.min.css" />
     <Content Include="Content\Site.min.css" />
     <Content Include="Content\styles\home.css" />
     <Content Include="Content\styles\order.css" />
@@ -391,7 +393,10 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\MyScripts\order.js" />
     <Content Include="Scripts\MyScripts\principal.js" />
+    <Content Include="Scripts\MyScripts\UserInterface.js" />
     <Content Include="Scripts\MyScripts\utilities.js" />
+    <Content Include="Scripts\select2\select2.full.min.js" />
+    <Content Include="Scripts\select2\select2.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
