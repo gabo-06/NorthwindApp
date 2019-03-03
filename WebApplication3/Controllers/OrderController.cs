@@ -87,7 +87,7 @@ namespace WebApplication3.Controllers
                 {
                     draw = Convert.ToInt32(draw),
                     recordsTotoal = recordsTotal,
-                    recordsFiltered = recordsFiltered,
+                    recordsFiltered = recordsFiltered, 
                     data = ordenesTemporal
                 },
                 JsonRequestBehavior.AllowGet);

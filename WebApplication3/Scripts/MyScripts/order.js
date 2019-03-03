@@ -1,16 +1,18 @@
-﻿debugger
+﻿// #region Definición de Espacios de nombres.
 var northwind = northwind || {};
 northwind.mantenimientoOrden = {};
 
-var NewCustomer_click = function()
-{
-    alert("Abre registro de nuevo cliente");
-}
+northwind.mantenimientoOrden.formulario = {};
+northwind.mantenimientoOrden.formulario.controles = {};
+northwind.mantenimientoOrden.formulario.controles.NewCustomer = {};
 
-northwind.mantenimientoOrden.inicio = function ()
+northwind.mantenimientoOrden.tablaMantenimiento = {};
+northwind.mantenimientoOrden.tablaMantenimiento.fila = {};
+// #endregion
+
+// #region Configuraciones
+northwind.mantenimientoOrden.configurarTablaDataTables = function ()
 {
-    //northwind.
-    northwind.userInterface.configurarComboSelect2($("#cmbCountry"), null, "Select a country...");
 	northwind.mantenimientoOrden.tabla = $("#tblOrdenes").DataTable({
 		"pagingType": "simple_numbers",
 		"proccessing": true,
@@ -69,13 +71,45 @@ northwind.mantenimientoOrden.inicio = function ()
 			"processing": "DataTables is currently busy"
 		}
 	});
+};
+// #endregion Configuraciones
+// #region	Métodos
+northwind.mantenimientoOrden.tablaMantenimiento.fila.expandeContenidoCompleto = function (e)
+{
+	const celda = $(e.toElement);
 
-    // Eventos
-	$("#NewCustomer").on("click", NewCustomer_click);
-	$("#tblOrdenes > tbody").on("click", "tr", function (e)
-	{
-		$(this).find("td:eq(0)").toggleClass("OrderIDno").toggleClass("OrderID");
-	});
+	if (celda.hasClass('OrderID') || celda.hasClass('OrderIDno')) // Verifica si la celda sobre la que se hizo click es la primera para poder expander el contenido completo de la fila.
+		celda.toggleClass("OrderIDno").toggleClass("OrderID");
+};
+// #endregion
+// #region Eventos
+northwind.mantenimientoOrden.formulario.controles.NewCustomer.click = function ()
+{
+	alert("Abre registro de nuevo cliente");
+};
+northwind.mantenimientoOrden.tablaMantenimiento.fila.click = function (e)
+{
+	northwind.mantenimientoOrden.tablaMantenimiento.fila.expandeContenidoCompleto(e);
+};
+// #endregion Eventos
+
+northwind.mantenimientoOrden.inicio = function ()
+{
+	// #region Configuraciones
+	northwind.userInterface.configurarControlDeFecha($("#dtpOrderDate"));
+	northwind.userInterface.configurarControlDeFecha($("#dtpRequiredDate"));
+	northwind.userInterface.configurarControlDeFecha($("#dtpShippedDate"));
+
+	northwind.userInterface.configurarComboSelect2($("#cmbCountry"), null, "Select a country...");
+	northwind.userInterface.configurarComboSelect2($("#cmbRegion"), null, "Select a region...");
+	northwind.userInterface.configurarComboSelect2($("#cmbCity"), null, "Select a city...");
+
+	northwind.mantenimientoOrden.configurarTablaDataTables();
+	// #endregion
+	// #region Eventos
+	$("#NewCustomer").on("click", northwind.mantenimientoOrden.formulario.controles.NewCustomer.click);
+	$("#tblOrdenes > tbody").on("click", "tr", northwind.mantenimientoOrden.tablaMantenimiento.fila.click);
+	// #endregion
 };
 
 $(northwind.mantenimientoOrden.inicio);

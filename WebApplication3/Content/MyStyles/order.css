@@ -1,0 +1,77 @@
+﻿/*#region Personalización para la librería datepicker*/
+.datepicker
+{
+    font-size: 70% !important;
+    padding: 1em !important;
+}
+/*#endregion*/
+
+/*#region Personalización para la librería select2*/
+.select2-selection__rendered
+{
+    line-height: 34px !important;
+}
+
+.select2-container .select2-selection--single
+{
+    height: 38px !important;
+}
+
+.select2-selection__arrow
+{
+    height: 36px !important;
+}
+/*#endregion*/
+
+/*#region Botones de la paginación de la tabla*/
+.page-item.active .page-link
+{
+    background-color: lightgrey !important;
+    border: 1px solid black;
+}
+
+.page-link
+{
+    color: black !important;
+}
+/*#endregion*/
+
+/*#region Clases que se da a la primera celda de las filas de la tabla para expandir el contenido completo*/
+.OrderID::before
+{
+    border: none !important;
+    background-color: transparent !important;
+    border-radius: 0.2em !important;
+    box-shadow: 0 0 3px #bb3d3d inset !important;
+    color: #ce5b5b !important;
+    content: "\f105" !important;
+    display: inline-block !important;
+    font-family: "Font Awesome 5 Free" !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    font-weight: 900 !important;
+    margin-right: 0.7em !important;
+    padding: 0.2em !important;
+    text-rendering: auto !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+
+.OrderIDno::before
+{
+    border: none !important;
+    background-color: transparent !important;
+    border-radius: 0.2em !important;
+    box-shadow: 0 0 3px #444444 inset !important;
+    color: #727980 !important;
+    content: "\f107" !important;
+    display: inline-block !important;
+    font-family: "Font Awesome 5 Free" !important;
+    font-style: normal !important;
+    font-variant: normal !important;
+    font-weight: 900 !important;
+    margin-right: 0.5em !important;
+    padding: 0.2em !important;
+    text-rendering: auto !important;
+    -webkit-font-smoothing: antialiased !important;
+}
+/*#endregion*/

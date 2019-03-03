@@ -2,23 +2,15 @@
 {
     <link href="~/Content/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" />
     <link href="~/Content/datatables/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/Content/datepicker/bootstrap-datepicker.min.css" rel="stylesheet" />
     <link href="~/Content/select2/select2.min.css" rel="stylesheet" />
-    <style>
-        .select2-selection__rendered {
-            line-height: 31px !important;
-        }
-
-        .select2-container .select2-selection--single {
-            height: 35px !important;
-        }
-
-        .select2-selection__arrow {
-            height: 34px !important;
-        }
-    </style>
+    <link href="~/Content/MyStyles/order.css" rel="stylesheet" />
 }
 @section scripts
 {
+    <script src="~/Scripts/datepicker/moment.min.js"></script>
+    <script src="~/Scripts/datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="~/Scripts/datepicker/bootstrap-datepicker.es.min.js"></script>
     <script src="~/Scripts/datatables/jquery.dataTables.min.js"></script>
     <script src="~/Scripts/datatables/dataTables.bootstrap4.min.js"></script>
     <script src="~/Scripts/datatables/dataTables.responsive.min.js"></script>
@@ -91,32 +83,20 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group col-lg-4">
-
-                            <div class="form-row d-block">
-                                <div class="col-lg-12 d-block">
-                                    <label for="dtpOrderDate" class="col-form-label text-left">Country</label>
-                                </div>
-                            </div>
-                            <div class="form-row d-block">
-                                <div class="col-lg-12 d-block">
-                                    <select class="form-control" id="cmbCountry" tabindex="7">
-                                        <option></option>
-                                    </select>
-                                </div>
-                            </div>
-
-
-
-                        </div>
-                        <div class="form-group col-lg-4">
-                            <label for="dtpRequiredDate" class="col-form-label text-left">Region</label>
-                            <select class="form-control" tabindex="8">
+                            <label for="cmbCountry" class="col-form-label text-left">Country</label>
+                            <select class="form-control" id="cmbCountry" tabindex="7">
                                 <option></option>
                             </select>
                         </div>
                         <div class="form-group col-lg-4">
-                            <label for="dtpShippedDate" class="col-form-label text-left">City</label>
-                            <select class="form-control" tabindex="9">
+                            <label for="cmbRegion" class="col-form-label text-left">Region</label>
+                            <select class="form-control" id="cmbRegion" tabindex="8">
+                                <option></option>
+                            </select>
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label for="cmbCity" class="col-form-label text-left">City</label>
+                            <select class="form-control" id="cmbCity" tabindex="9">
                                 <option></option>
                             </select>
                         </div>
